@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow:
+Host: klop-off24.ru

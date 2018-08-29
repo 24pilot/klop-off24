@@ -1,0 +1,1053 @@
+<?php
+if (isset($_COOKIE["userhash"])){
+  $userhash = $_COOKIE["userhash"]; // Узнаём, что за пользователь
+}
+ else  {     
+    $userhash = uniqid();// Если это новый пользователь, то добавляем ему cookie, уникальные для него
+    setcookie("userhash", $userhash);
+  }
+
+//print_r($_COOKIE);
+ $ip = $_SERVER["REMOTE_ADDR"];
+ // $ip = ip2long($_SERVER["REMOTE_ADDR"]); // Преобразуем IP в число
+//echo "<br/>ip-> ".$ip;
+  $uri = $_SERVER["REQUEST_URI"]; // Узнаём uri
+//echo "<br/>uri-> ".$uri;
+  $ref = $_SERVER["HTTP_REFERER"]; // Узнаём, откуда пришёл
+//echo "<br/>ref-> ".$ref;
+   $user_agent = $_SERVER["HTTP_USER_AGENT"];
+  if (strpos($user_agent, "Firefox") !== false) $browser = "Firefox";
+  elseif (strpos($user_agent, "Opera") !== false) $browser = "Opera";
+  elseif (strpos($user_agent, "Chrome") !== false) $browser = "Chrome";
+  elseif (strpos($user_agent, "MSIE") !== false) $browser = "Internet Explorer";
+  elseif (strpos($user_agent, "Safari") !== false) $browser = "Safari";
+  else $browser = "Неизвестный";
+//echo "<br/>browser-> ".$browser;
+  $date = time(); // Берём текущее время
+//echo "<br/>date-> ".$date;
+  $connection = new mysqli("localhost", "cp62865_calc", "calc1", "cp62865_calc" ); // Соединяемся с базой
+//if ($connection->connect_error) die($connection->connect_error);
+  $connection->query("INSERT INTO `visits` (`userhash`, `ip`, `uri`, `ref`, `browser`, `date`) VALUES ('$userhash', '$ip', '$uri', '$ref', '$browser', '$date')"); // Добавляем запись
+  $connection->close(); // Закрываем соединение
+/*
+function getUserIp() {
+  if ( isset($_SERVER['HTTP_X_REAL_IP']) )
+  {
+    $ip = $_SERVER['HTTP_X_REAL_IP'];
+  } else $ip = $_SERVER['REMOTE_ADDR'];
+ 
+  return $ip;
+}
+	
+$ip = getUserIp();
+echo $ip;
+
+if(mail("off247@yandex.ru", 'IP: '.$ip, 'IP: '.$ip)) {
+	echo "Mail sent";
+}
+else {
+	echo " Some errors happen";
+}
+*/
+	?>
+<!DOCTYPE html>
+<!-- Разметка с помощью микроданных, созданная Мастером разметки структурированных данных Google. -->
+<html class="no-js" lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+  <meta name="yandex-verification" content="1d3f5e2c531ab41b" />
+  <meta name="keywords"  content="уничтожение клопов тараканов Москва, уничтожить клопов тараканов в квартире" />
+  <meta name="description" content="Уничтожение клопов тараканов 970 руб! Без запаха, европейские средства! Конфиденциально уничтожить клопов тараканов">
+  <title>Уничтожение клопов тараканов в квартире Москва без запаха безопасно с гарантией, вывести тараканов, уничтожить клопов, дезинсекция, дезинфекция</title>
+  <!-- bootstrap css placed in /bootstrap folder -->
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" >
+  <!-- animate.css for wow.js fonts -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css" >
+  <!-- utility.css -->
+  <link rel="stylesheet" type="text/css" href="css/utility.css">
+  <!-- slideshow.css --> 
+  <link rel="stylesheet" type="text/css" href="css/slideshow.css">
+  <!-- style -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- usertweak -->
+  <link rel="stylesheet" type="text/css" href="css/usertweak.css">
+  <!-- custom code in below file -->
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <!-- ionicons -->
+  <link rel="stylesheet" type="text/css" href="fonts/ionicons.css" >
+  <!-- lightbox plugin -->
+  <link rel="stylesheet" type="text/css" href="css/lightGallery.css" >
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <!-- google fonts --><link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,700%7CPhilosopher:400%7C700%7COpen+Sans:300,700%7COpen Sans%7COpen+Sans:300%7COpen+Sans:300,700%7CLobster%7COswald%7COpen+Sans:300'>
+ 
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter43986599 = new Ya.Metrika2({
+                    id:43986599,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks2");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/43986599" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->  
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96759879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>  
+  
+  </head> 
+ <body class='omg'> 
+
+<span itemscope itemtype="http://schema.org/LocalBusiness">
+  <!--<nav class="cntrl-nav navbar omg_component nav-dark bg-black" style="display: block; background-color: rgb(74, 149, 83);"> -->
+    <nav class="cntrl-nav navbar omg_component nav-dark bg-black" style="display: block; background-color: #2cbf55;">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+      <div class="navbar-header logos">
+        <a class="navbar-toggle collapsed icon ion-navicon nav-collapse-icon cursor_pointer" data-target="#mainmenu" data-toggle="collapse"></a> 
+    <!--<a class=" cursor_pointer  fadeInDownBig" href="index.html" style="font-family: Philosopher; font-size: 22px; font-weight: 700; "><span itemprop="name">РосДезсервис - Уничтожение клопов тараканов </span></a>-->
+        <a class=" cursor_pointer  fadeInDownBig"style="font-family: Philosopher; font-size: 22px; font-weight: 700; ">РосДезсервис - Уничтожение клопов тараканов клещей</a>
+      </div><!-- Collect the nav links, forms, and other content for toggling -->
+
+      <div class="collapse navbar-collapse" id="mainmenu">
+        <ul class="nav navbar-nav navbar-right">
+         
+           
+          
+          
+          <li class="">
+            <a href="#cnts_3" class="cursor_pointer">Услуги</a>
+          </li>
+          <li class="">
+            <a href="#cnts_5" class="cursor_pointer">Почему мы?</a>
+          </li>
+          <li class="">
+            <a href="#cnts_vredkl" class="cursor_pointer">Вред клопов, тараканов, клещей</a>
+          </li>
+          <li class="">
+            <a href="#cnts_samo" class="cursor_pointer">Травить клопов самостоятельно?</a>
+          </li>
+           <li class="">
+            <a href="#cnts_prepar" class="cursor_pointer">Как подготовить квартиру?</a>
+          </li>
+          <li class="">
+            <a href="#rvw_1" class="cursor_pointer">Отзывы</a>
+          </li><li class="">
+            <a href="#video_youtube" class="cursor_pointer">Видео</a>
+         
+           </li><li class="">
+            <a href="#sendtel" class="cursor_pointer">Заказать</a>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav><section class="full-height omg_component" id="cHkNj">
+<!--        <div class="slideshow hide-dots dark-control full-height"><div class="slide">    -->
+                <div class="full-height overflow-hidden bg-img" style="background-image: url('img/images_54/bed.jpg');">
+                    <div class="overlay color-white full-height" style="background-color: rgba(0, 0, 0, 0.45098);">
+                        <div class="container v-align text-center">
+                            <div class="h-align" style=" left: 0px; top: 0px;">
+                            <h1 class="hero-subtitle color-primary cursor_pointer" style="font-size: 35px; font-family: 'Open Sans'; font-weight: 700; color: rgb(255, 255, 255);">Уничтожение клопов, тараканов, клещей 970руб &nbsp;&nbsp;<br>травим за 30 минут без запаха&nbsp;&nbsp;<br>Москва, Московская область<br>
+                              <span itemprop="telephone" style="background-color: rgb(255, 117, 98);">8&nbsp;499&nbsp;394&nbsp;78&nbsp;21</span><br><span style=" background-color: rgb(74, 149, 83);"> +7 925 710 91 86</span></h1>
+
+                            <p class="hero-subtitle color-primary cursor_pointer" style="font-size: 24px; font-family: 'Open Sans';">УНИЧТОЖИТЬ КЛОПОВ БЕЗОПАСНО ДЛЯ ДЕТЕЙ, ЖИВОТНЫХ, МЕБЕЛИ.<br><span  style="background-color: rgb(255, 117, 98);">Выезд бесплатно</span><br>БЕЗ ЗАПАХА, ИМПОРТНЫЕ ПРЕПАРАТЫ<br>скидки пенсионерам<br></p>
+
+    <div class="padd-top-xs" >
+                                
+         <a class="btn btn-white btn-pill cursor_pointer" style="background-color: #2cbf55;" href="#sendtel">ПРОКОНСУЛЬТИРОВАТЬСЯ&nbsp;</a>
+     </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--            </div><div class="slide">
+                <div class="full-height overflow-hidden bg-img" style="background-image: url('img/images_54/fogger800600.jpg');">
+                    <div class="overlay color-white full-height" style="background-color: rgba(0, 0, 0, 0.45098);">
+                        <div class="container v-align text-center">
+                            <div class="h-align" style=" left: 0px; top: 0px;">
+                            
+
+                            <h2 class="hero-subtitle color-primary cursor_pointer" style="font-size: 35px; font-family: 'Open Sans'; font-weight: 700; color: rgb(255, 255, 255);">УНИЧТОЖИТЬ КЛОПОВ СУХИМ ТУМАНОМ БЕЗОПАСНО <br>+7 967 2992543 <br>звоните, убедитесь!<br></h2>
+
+                              <p class="hero-subtitle color-primary cursor_pointer" style="font-size: 24px; font-family: 'Open Sans';">БЕЗОПАСНО ДЛЯ ЛЮДЕЙ И ЖИВОТНЫХ, МЕБЕЛИ.<br>БЕЗ ЗАПАХА, СУХИМ ТУМАНОМ, ТОЛЬКО ИМПОРТНЫЕ ПРЕПАРАТЫ, НАНОГРАНУЛЫ<br>скидки пенсионерам<br>нам доверяют ДЕЗИНФЕКЦИю &nbsp;ЕВРОПЕЙСКИе ОТЕЛи</p>
+                              
+                            <div class="padd-top-xs">
+                                
+                                <a class="btn btn-white btn-pill cursor_pointer" href="#sendtel">+79672992543&nbsp;</a>
+                            </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+-->
+    </section>
+  
+
+
+<section id="sendtel">
+<p class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);" align="center"> <br> ЗВОНИТЕ<br><br> <span itemprop="telephone" style="color: rgb(255, 255, 255); background-color: rgb(255, 117, 98);">8&nbsp;499&nbsp;394&nbsp;78&nbsp;21</span> </p>  
+
+
+ <!-- <input name="phone" placeholder="Тел"  >
+<input type="button" value="Запросить обратый звонок" >
+  -->
+<div style="background-color: #2cbf55;" >
+		<div class="container padd-top-lg padd-bottom-lg text-center">
+			<h4 class="light-font uppercase cursor_pointer" style="font-family: Philosopher; font-size: 24px; opacity: 1;">Оставьте свой телефон и получите <span style="color: rgb(255, 255, 255); background-color: rgb(255, 117, 98);">скидку 10%</span>, МЫ ПЕРЕЗВОНИМ&nbsp;</h4>	
+<form action="" id="form">          
+          <input type="text" style="font-family: Philosopher; font-size: 18px; opacity: 1;" name="phone" placeholder="Ваш телефон:" required />
+		    <input type="button" class="btn btn-white btn-pill cursor_pointer" style="font-family: Philosopher; font-size: 18px; opacity: 1; " value="ЗАКАЗАТЬ ЗВОНОК">
+</form> 
+          <h4 class="light-font uppercase cursor_pointer" id="result" style="font-family: Philosopher; font-size: 31px; opacity: 1;">Ваш телефон еще не указан&nbsp;</h4>
+		</div>
+</div>    
+  
+
+<script type="text/javascript" src="js/jquery.min.js"></script>  
+<script>
+  $('[type="button"]').click(function() {
+    $.post(
+           "/sendme.php",  
+           {
+           phone: $('[name="phone"]').val()
+           },
+           function(data) {
+           $("#result").html(data);
+//alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+			$("#form").trigger("reset");             
+           }
+    );              
+  });
+</script> 
+  
+</section>   
+  
+  
+  
+  
+  
+  
+  
+<section id="cnts_3" class="omg_component content-26">
+	<div class="bg-color bg-white" style="background-color: rgb(255, 255, 255);">
+		<div class="container padd-top-md padd-bottom-md">
+			<div class="row">
+				
+				<div class="col-md-4 text-center padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					<div class="icon-border bg-grey "><i style="color: rgb(255, 118, 91); font-size: 70px;" class="icon ion-ios-checkmark cursor_pointer"></i></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83);">УНИЧТОЖЕНИЕ КЛОПОВ 100% БЕЗОПАСНО</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-weight: 300; font-size: 13px;">Современные импортные препараты сертифицированы и применяются даже в детских учреждениях .</p>
+				</div>
+
+				<div class=" col-md-4 text-center padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					<div class="icon-border bg-grey "><i class="icon ion-ios-checkmark cursor_pointer" style="color: rgb(255, 114, 94); font-size: 70px;"></i></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; background-color: #2cbf55;">ДЕЗИНФЕКЦИЯ, ГАРАНТИЯ, ПОДПИШЕМ ДОГОВОР&nbsp;</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-size: 13px;">По выполнению работ дезинсекции наши представители подписывают договор с гарантийными &nbsp;обязательствами&nbsp;</p>
+				</div>
+
+				<div class=" col-md-4 text-center padd-top-md " style="visibility: visible;  left: 0px; top: 0px;">
+					<div class="icon-border bg-grey"><i class="icon ion-ios-checkmark cursor_pointer" style="color: rgb(255, 117, 98); font-size: 70px;"></i></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700;  color: rgb(74, 149, 83);">Скидка на уничтожение клопов, тараканов для ВСЕГО ПОДЪЕЗДА</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-size: 13px;">Эффективность повышается при обработке от клопов, тараканов соседних квартир &nbsp;</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+  <section id="cnts_3" class="omg_component content-26" style="position: relative; left: 0px; top: 0px;">
+	<div class="bg-color bg-white" style="background-color: rgb(236, 236, 236);">
+		<div class="container padd-top-md padd-bottom-md">
+			<div class="row">
+				<h2 class=" col-md-12 text-center padd-bottom-xs title cursor_pointer " style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83); line-height: 12px; visibility: visible; ">ТРАВИМ КЛОПОВ</h2>
+<h2 class=" col-md-12 text-center padd-bottom-xs title cursor_pointer " style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83); line-height: 12px; visibility: visible;">30&nbsp;мин&nbsp;</h2>				
+
+				
+
+				
+			</div>
+		</div>
+	</div>
+</section>
+  
+<section id="video_youtube" class="omg_component  content-1"> 
+      <div class="bg-white bg-color padd-top-2x padd-bottom-2x">
+        <div class="container">
+            <div class="row  v-align-flex">
+               <div class="col-md-6" style=" left: 0px; top: 0px;">
+<iframe width="300" height="200" src="https://www.youtube.com/embed/HISOcSFmQfk?rel=0" frameborder="0" allowfullscreen></iframe>  
+                
+               </div> </div>
+  </div>
+  </div>              
+</section>  
+  
+<section id="cnts_5" class="omg_component thr_blks content-26">
+	<div class="bg-color bg-white" style="background-color: rgb(236, 236, 236);">
+		<div class="container padd-bottom-md">
+			<div class="row">
+				<div class=" col-md-4 text-center padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					<div class="icon-border bg-grey"><i style="font-size: 43px; color: rgb(74, 149, 83);" class="icon ion-erlenmeyer-flask cursor_pointer"></i></div>
+					<h2 class="hero-title text-left cursor_pointer" style="font-family: 'Open Sans'; font-size: 16px; color: rgb(74, 149, 83);">Качественные препараты от насекомых&nbsp;</h2>
+					<p class="text-xs color-primary text-left cursor_pointer" style="font-family: 'Open Sans';">Обработка квартиры от клопов, тараканов только сертифицированными в Европе и России препаратами. Безопасны для детей, животных,  и мебели.&nbsp;</p>
+					<div class="col-xs-12 text-left">
+						
+					</div>
+				</div><div class=" col-md-4 text-center padd-top-md animated " style=" left: 0px; top: 0px; visibility: visible;">
+					<div class="icon-border bg-grey"><i style="font-size: 43px; color: rgb(74, 149, 83);" class="icon ion-eye-disabled cursor_pointer"></i></div>
+					<h2 class="hero-title text-left cursor_pointer" style="font-family: 'Open Sans'; font-size: 16px; color: rgb(74, 149, 83);">Уничтожение клопов втайне от соседей</h2>
+					<p class="text-xs color-primary  text-left cursor_pointer" style="font-family: 'Open Sans';">Соседи не узнают, что у Вас проводили уничтожение тараканов клопов и насекомых, служба дезинфекции переодевается внутри помещения&nbsp;</p>
+					<div class="col-xs-12 text-left">
+						
+					</div>
+				</div><div class=" col-md-4 text-center padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					<div class="icon-border bg-grey"><i style="font-size: 43px; color: rgb(74, 149, 83);" class="icon ion-checkmark-circled cursor_pointer"></i></div>
+					<h2 class="hero-title text-left cursor_pointer" style="font-family: 'Open Sans'; font-size: 16px; color: rgb(74, 149, 83);">Широкий выбор средств от клопов, тараканов&nbsp;</h2>
+					<p class="text-xs color-primary  text-left cursor_pointer" style="font-family: 'Open Sans';">Доступно уничтожение постельных клопов, тараканов, насекомых туманом, микрогоранулами длительного действия&nbsp;</p>
+					<div class="col-xs-12 text-left">
+						
+					</div>
+				</div><div class="col-md-4 text-center padd-top-md" style=" left: 0px; top: 0px;">
+					<div class="icon-border bg-grey"><i style="font-size: 43px; color: rgb(74, 149, 83);" class="icon ion-forward cursor_pointer"></i></div>
+					<h2 class="hero-title text-left cursor_pointer" style="font-family: 'Open Sans'; font-size: 16px; color: rgb(74, 149, 83);">Уничтожить клопов всего 30 минут!&nbsp;</h2>
+					<p class="text-xs color-primary  text-left cursor_pointer" style="font-family: 'Open Sans';">&nbsp;Работы по выведению паразитов ведутся не более получаса, после проветривания остатков тумана помещение в Вашем распоряжении</p>
+					<div class="col-xs-12 text-left">
+						
+					</div>
+				</div><div class="col-md-4 text-center padd-top-md" style=" left: 0px; top: 0px;">
+					<div class="icon-border bg-grey "><i style="font-size: 43px; color: rgb(74, 149, 83);" class="icon ion-cash cursor_pointer"></i></div>
+					<h2 class="hero-title text-left cursor_pointer" style="font-family: 'Open Sans'; font-size: 16px; color: rgb(74, 149, 83);">Низкие цены</h2>
+					<p class="text-xs color-primary  text-left cursor_pointer" style="font-family: 'Open Sans';">Скидки на дезинфекцию пенсионерам. Скидки на уничтожение клопов, тараканов в квартире в Москве и Московской области всему подьезду. </p>
+					<div class="col-xs-12 text-left">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+  
+  
+ 
+  
+<section id="cnts_1">
+ <h2 class="title uppercase letter-spacing-3 text-center cursor_pointer" style="font-family: Philosopher; font-size: 24px; color: rgb(74, 149, 83);">ДЕЗИНФЕКЦИЯ от клопов, тараканов, клещей, МЕТОДЫ:</h2>
+ 
+            <div class="container padd-top-md padd-bottom-md">
+			<div class="row">
+				
+				<div class="col-md-4 text-center padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+                
+                    <div class="gutter">
+                    <div class="slideshow">
+                     <div class="slide">                     
+                     <img alt="image" src="img/images_54/fogger800600.jpg">
+                        </div></div>   
+                        <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 24px; color: rgb(74, 149, 83);">ДЕЗИНФЕКЦИЯ от клопов, клещей и тараканов</h2>
+                        <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">ГОРЯЧИЙ ТУМАН<br>
+                          ХОЛОДНЫЙ ТУМАН<br>
+                          БЛОКИРОВКА ПОВТОРНОГО ПОЯВЛЕНИЯ МИКРОГРАНУЛАМИ<br> </p>
+                          <p align="left">После дезинсекции (уничтожения насекомых) часто остаются кладки яиц тараканов и клопов. У нас уничтожение клопов с гарантией. Наши наногранулы длительного действия дождутся и смогут вытравить насекомых!<br>
+                            <br>ГОРЯЧИЙ ТУМАН, сухой туман, сухой пар, GAP<br> 
+Внесение активного вещества в парообразном состоянии при помощи специальных генераторов позволяет добиться минимальный размер капли от 1 до 30 мкм<br>
+Плюсы:<br>
+- Наивысшее проникновение в щели, за препятствия при уничтожении тараканов<br>
+- Помещение полностью заполняется парами препарата, не оставляя паразитам шанса<br>
+- Идеально для дезинфекции от тараканов захламленных помещений<br>
+- Не оставляет видимых следов обработки<br>
+Минусы:<br>
+- С момента окончания обработки до проветривания помещения должно пройти несколько часов<br>
+- Не все препараты сохраняют свои свойства в процессе нагрева<br>
+- Запрещено использовать препараты на легковоспламеняющихся органических растворителях<br>
+- Наличие зон высокой температуры в местах расположения газовых или бензиновых сопел/форсунок<br>
+- Высокие требования к технической подготовке персонала<br>
+- Высокая стоимость оборудования </p>
+
+</div>
+</div>
+              
+               <div class="col-md-4 text-center padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+                 
+                    <div class="gutter">
+                    <div class="slideshow">
+
+                     <div class="slide">                     
+                     <img alt="image" src="img/images_54/hol1.jpg">
+                        </div></div>  
+                        <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 24px; color: rgb(74, 149, 83);">ДЕЗИНФЕКЦИЯ от клопов и тараканов ХОЛОДНЫЙ ТУМАН</h2>
+                        <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">
+                          ХОЛОДНЫЙ ТУМАН<br>
+                          
+                          <p align="left">  
+                      
+<br>ХОЛОДНЫЙ ТУМАН, Микродисперсная обработка , ULV<br>
+Внесение жидких препаратов с помощью распылителей, работающих по принципу высокого давления рабочей смеси или создающие направленную воздушно-жидкостную струю. Размер капель при такой обработке колеблется от 20 до 150 мкм в зависимости от рабочего давления, вязкости препарата и диаметра диффузора.<br>
+Плюсы:<br>
+- Можно применять все, без исключения, жидкие препаратыт от тараканов и клопов<br>
+- Идеальное и равномерное покрытие поверхностей в помещении<br>
+- Идеально подходит для обработки растений в теплицах<br>
+- Хорошее проникновение за препятствия<br>
+Минусы:<br>
+- Требуется подключение к электросети<br>
+- Высокая стоимость оборудования<br>
+                      
+ 
+                            
+                    </div>
+               </div>              
+              
+
+              
+               <div class="col-md-4 text-center padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+                    <div class="gutter">
+                       <div class="slideshow">
+
+                     <div class="slide">                     
+                     <img alt="image" src="img/images_54/melkodisp.jpg">
+                        </div></div>
+                        <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 24px; color: rgb(74, 149, 83);">ОПРЫСКИВАНИЕ от клопов, клещей и тараканов</h2>
+                        <p class="color-primary  padd-bottom-xs line-height-2 cursor_pointer" style="font-family: Oswald;">МЕЛКОДИСПЕРСНАЯ ОБРАБОТКА или ОПРЫСКИВАНИЕ от насекомых<br> </p>
+                         
+                          <p align="left">
+<br>МЕЛКОДИСПЕРСНАЯ ОБРАБОТКА или ОПРЫСКИВАНИЕ от насекомых<br>
+Внесение жидких препаратов с помощью распылителей, работающих по принципу центробежного распыления с низким рабочим давлением смеси. Размер капель при таком способе внесения колеблется от 0,65 до 0,05мм.<br>
+Плюсы:<br> 
+- Можно применять все, без исключения, жидкие и растворимые препараты<br>
+- Идеален при работе на открытом пространстве<br>
+- Допускает уничтожение тараканов и клопов в помещении при открытых окнах<br>
+- Идеально подходит для обработки пористых и впитывающих поверхностей, когда требуется использовать повышенные нормы рабочей смеси<br>
+Минусы:<br>
+- Слабое проникновение препарата в щели и за препятствия<br>
+- Остаются следы обработки на мебели, зеркалах, окнах<br>
+- После обработки в помещении “мокро”  </p>                     
+
+
+     </div>
+               </div>                               
+              
+              
+              
+                 
+                 
+            </div>
+        </div>
+          
+  
+                      <p  align="center" class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;
+                        <a href="#sendtel" align="center" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ТРАВИТЬ +7 925 710 91 86&nbsp;</a>  </p>
+</section>  
+
+
+
+   
+<section id="cnts_vredkl" class="omg_component  content-1">
+  <h2 class="title uppercase letter-spacing-3 text-center cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);">Вред клопов, тараканов, клещей</h2>
+    <div class="bg-white bg-color padd-top-2x padd-bottom-2x">
+        <div class="container">
+            <div class="row">
+
+               <div class="col-md-4">
+                
+                     
+                     <img alt="image" src="img/images_54/klop3.jpg">
+                       
+                        <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);">Укус клопов </h2>
+                        <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">Достоверно доказано, что постельные клопы, тараканы и другие паразиты способны переносить заболевания. Таким образом существует возможность передачи ими организмов, которые вызывают туляремию, бруцеллез, оспу, гепатит B и С, туберкулез, брюшной тиф и сибирскую язву. А. Б. Дайтером показано, что испражнения домашних клопов могут содержать риккетсии Бернета. Наибольший вред людям постельные клопы доставляют своими укусами, лишая нормального отдыха и сна, переключая все мысли на уничтожение постельных клопов, и снижая тем самым работоспособность. Кроме того, в некоторых случаях укус клопа может привести к кожной сыпи, аллергии или стать психотравмирующим фактором. Во время нападения клоп, в отличие от комаров, редко остаётся на одном участке кожи — вместо этого он перемещается по ней, оставляя «дорожку» из укусов. Расстояние между укусами клопов может достигать нескольких сантиметров. При сильном заражении помещения возможно 500 и более укусов за одну ночь. Одна сытая самка клопа за сутки откладывает 5 яиц из которых через 5-9 дней появляется личинка паразита. Полный цикл развития от яйца до взрослой особи вредителя составляет 30—40 дней. Эфективная борьба с клопами предусматривает обработку микрогранулами.
+ </p>
+ 
+                 
+               </div>
+
+
+
+  
+
+
+               <div class="col-md-4">
+ 
+                      
+                     <img alt="image" src="img/images_54/tarak.jpg">
+                        
+<h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);">Вред тараканов </h2>
+                        <p  align="left" class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">
+Тараканы населяют нашу планету более 200 млн лет и за это время претерпели не очень много изменений. Они постоянные соседи человека в его жилище. Питаются остатками пищи с нашего стола, а когда их недостаточно начинают  есть растения, кожу, фекалии, бумагу и т.д. Дизентерия, тиф, холера, яйца глистов переносятся тараканами и могут быть “наградой” для хозяев квартиры, если не проводится дезинфекция от тараканов. Остатки хитинового панциря таракана, сброшенный в момент линьки, может спровоцировать аллергическую реакцию у некоторых людей. Плодятся тараканы довольно быстро - каждые 15-20 дней самка откладывает 40-50 яиц. В небольшой популяции взрослые самки могут размножаться без спаривания с самцом. Продолжительность жизни 1-1,5 года рыжий таракан и 5-7 лет большой черный таракан. Уничтожение тараканов дома стало привычной процедурой.
+
+ </p>
+
+
+               </div>
+          
+
+
+  
+
+
+
+
+
+               <div class="col-md-4">
+                     
+                     <img alt="image" src="img/images_54/kleschpost.jpg">
+					 
+                      
+ <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);">Вред постельных клещей </h2>
+                        <p  align="left" class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">
+ 
+Дома, в обычной пыли можно найти около 150—200 видов клещей ( пироглифидные / дерматофагоидные клещи). Их размер колеблется в пределах от 0,1 до 0,5 мм и клещи трудно обнаруживаются без специальных средств. При благоприятных условиях (обилие пыли, высокая влажность, большое количество ковров и т.д.) они могут очень сильно увеличить численность популяции и стать настоящим бедствием для хозяев жилья. Клещи могут вызывать различные кожные  заболевания— акародерматиты, которые обусловлены постоянным паразитизмом  в коже клещей (чесотка, демодекоз), временным эктопаразитизмом (зерновая чесотка, дерманиссиоз, тромбидиаз, крысиный клещевой дерматит и т. д.) либо широко представлены аллергии на аллергены клещей (Клещевая сенсибилизация). По мнению Dust Mulvey (1972) синдром внезапной детской смерти может быть вызван воздействием аллергенов клеща и как следствие - анафилаксией. Аллергический ринит и бронхиальная астма являются наиболее частым клиническим проявлением аллергии дыхательных путей на клещей домашней пыли и их метаболиты. Фрагменты клещей (размером 10-40 микрон) и продукты жизнедеятельности (частицы фекалий) вызывают аллергический конъюнктивит, респираторные аллергозы, бронхиальную астму, отёк Квинке, аллергический дерматит. Их фекалии содержат пищеварительные энзимы (белки Der f1 и Der p1), которые способствуют разрушению клеток человеческой кожи. Доказана  связь пылевых клещей и с такой болезнью, как синдром Кавасаки.
+
+ </p>  
+
+                   
+ 
+            </div>
+              
+
+                             </div>
+
+        </div>
+          
+    </div> 
+                        <p  align="center" class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;
+                        <a href="#sendtel" align="center" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ТРАВИТЬ +7 925 710 91 86&nbsp;</a>  </p>
+</section>
+  
+  
+<section id="cnts_klesch" class="omg_component  content-1">
+    <div class="bg-white bg-color padd-top-2x padd-bottom-2x">
+        <div class="container">
+            <div class="row  v-align-flex">
+               <div class="col-md-6" style=" left: 0px; top: 0px;">
+                   
+				        <div>
+                            <img alt="image" src="img/images_54/kleshenc.jpg">
+                        </div>
+						<div>
+                            <img alt="image" src="img/images_54/kleschchesot.jpg">
+                        
+					</div>
+               </div>
+
+               <div class="col-md-6" style=" left: 0px; top: 0px;">
+                    <div class="gutter">
+                        <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);">Опасность клещей</h2>
+                        <p  align="left" class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">
+
+
+Клещи чаще доставляют неудобства владельцам животных впиваясь в мохнатых друзей. <br>Но иногда клещ может использовать в 
+
+качестве пищи кровь человека.В первую очередь нас пугает заражение энцефалитом но гораздо чаще от клещей можно получить 
+
+"подарки" в виде таких заболевания, как болезнь Лайма, мальтийская лихорадка или боррелиоз.<br>
+   Сезон активности клещей в наших широтах длится с апреля по октябрь и особенно следует опасаться клещей владельцам 
+
+загородных домов и участков.Нападают клещи на свои жертвы с стравы, кустов и падают с веток деревьев.<br>
+  Акарицидная (противоклещевая) обработка участка проводится следующим образом:<br>
+- обрабатывается весь травяной покров;<br>
+- кусты;<br>
+- стволы деревьев на высоту до 1,5-2 метра.<br>
+Для лучшего эффекта желательно периметр участка, внешние зоны шириной 1,5 метра прилегающие к границам участка, дорожкам и зданиям дополнительно обработать препаратами длительного действия. Это поможет уничтожить клещей на более длительный срок.<br>
+Уничтожение клещей - методы<br>
+Для участков до 50 соток:<br>
+- Мелкодисперсное распыление препаратов (помповым опрыскивателем)<br>
+- Микродисперсное распыление препаратов (электрическим или бензиновыи генератором воздушно - капельной смеси)<br>
+Для участков более 50 соток возможно применение фумигационной обработки от клещей. <br>
+</p>
+<p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ТРАВИТЬ +7 925 710 91 86&nbsp;</a>
+                    </div>
+					<div class="gutter">
+                        
+                        
+                        
+                    </div>
+               </div>
+            </div>
+        </div>
+          
+    </div>    
+</section>   
+  
+  
+  
+  
+
+<section id="cnts_samo" class="omg_component  content-1">
+    <div class="bg-white bg-color padd-top-2x padd-bottom-2x">
+        <div class="container">
+            <div class="row  v-align-flex">
+               <div class="col-md-6" style=" left: 0px; top: 0px;">
+                   <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/spray.jpg">
+                                             </div></div>
+               </div>
+
+               <div class="col-md-6" style=" left: 0px; top: 0px;">
+                    <div class="gutter">
+                        <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);">Травить клопов, тараканов самостоятельно</h2>
+                        <p  align="left" class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">
+
+
+  Избавиться от клопов, тараканов и других насекомых самостоятельно трудно, но вполне возможно. Необходимо просто учесть несколько факторов:<br>
+<br>1. Обработка от клопов, тараканов  проводится во всех комнатах квартиры одновременно, чтоб не дать возможности насекомым мигрировать из одной комнаты в другую и обратно.
+<br>2. Учитывать продолжительность действия выбранного препарата для уничтожения насекомых. Например тараканы появляются из яиц через 7-12 дней,  и в это время инсектицид должен еще действовать.
+<br>3. Покупать яды чтобы вывести клопов самостоятельно  в крупных магазинах, а не в палатке на строительном рынке, где высока вероятность купить аэрозоли наполненные изобретениями “домашних химиков”.
+<br>4. Помнить - концентрация действующего вещества в купленном препарате для избавления от клопов для бытового использования  не высока. Стандарт требует, чтоб при использовании полного аэрозоля в одной комнате человек без специальной защиты не получил смертельного отравления.
+<br>5. Внимательно читать инструкцию на этикетке и действовать при выведении клопов, тараканов строго по указаниям производителя.
+<br>6. Используйте средства индивидуальной защиты чтобы провести уничтожение клопов в квартире.
+<br>7. Убрать из квартиры детей и домашних животных на время обработки и последующих проветриваний и уборки помещния. </p><p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ТРАВИТЬ +7 925 710 91 86&nbsp;</a>
+                    </div><div class="gutter">
+                        
+                        
+                        
+                    </div>
+               </div>
+            </div>
+        </div>
+          
+    </div>    
+</section>   
+
+  <!--
+KUPIT
+-->  
+<section id="cnts_kupit" class="omg_component content-26">
+	<div class="bg-color bg-white" style="background-color: rgb(255, 255, 255);">
+		<div class="container padd-top-md padd-bottom-md">
+			<div class="row">
+				
+				<div class="col-md-4 text-left padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					
+                  <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/Fors-sit.png">
+                   </div></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83);">ФОРС-САЙТ   25% К.Э.</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-weight: 300; font-size: 13px;">ФОРС-САЙТ   25% К.Э.
+Состав: фентион 25%
+Концентрированная эмульсия для уничтожения тараканов, клопов, блох, мух, муравьёв, клещей,комаров и их личинок на объектах различной категории. Препарат в виде прозрачной жидкости от светло-желтого цвета до прозрачного.
+</p>
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ЗАКАЗАТЬ&nbsp;</a>                  
+				</div>
+              
+              
+              
+              
+
+				
+				<div class="col-md-4 text-left padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					
+                  <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/Urax.png">
+                   </div></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83);">>ЮРАКС   25%.</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-weight: 300; font-size: 13px;">ЮРАКС   25% К.Э.
+Состав: циперметрин 25%
+Концентрированная эмульсия для уничтожения тараканов, клопов, блох, мух, муравьёв, клещей,комаров и их личинок на объектах различной категории. Препарат в виде прозрачной жидкости от светло-желтого до красно-коричневого цвета.
+
+</p>
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ЗАКАЗАТЬ&nbsp;</a>                  
+				</div>              
+              
+              
+
+              
+
+				
+				<div class="col-md-4 text-left padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					
+                  <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/Ciklop.png">
+                   </div></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83);">>ЦИКЛОП  30%.</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-weight: 300; font-size: 13px;">ЦИКЛОП  30%  К.Э.
+Состав: хлорпирифос 20%, циперметрин 10%.
+Концентрированная эмульсия для уничтожения тараканов, клопов, блох, мух, муравьёв, клещей,комаров и их личинок, а также кожеедами сверчками, чешуйницами, пауками на объектах различной категории. Препарат в виде прозрачной жидкости от светло-желтого до коричневого цвета.
+
+</p>
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ЗАКАЗАТЬ&nbsp;</a>                  
+				</div>               
+              
+              
+              
+
+				
+				<div class="col-md-4 text-left padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					
+                  <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/Kukarach.png">
+                   </div></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83);">>КУКАРАЧА  30%.</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-weight: 300; font-size: 13px;">КУКАРАЧА  30% К.Э.
+Состав: циперметрин 20%, малатион 10%.
+Концентрированная эмульсия для уничтожения тараканов, клопов, блох, мух, клещей,комаров и их личинок на объектах различной категории. Препарат в виде прозрачной жидкости от светло-желтого до коричневого цвета.
+
+</p>
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ЗАКАЗАТЬ&nbsp;</a>                  
+				</div>
+              
+              
+
+				
+				<div class="col-md-4 text-left padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					
+                  <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/Super-FAS.png">
+                   </div></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83);">>>СУПЕР ФАС  5%</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-weight: 300; font-size: 13px;">СУПЕР ФАС  5% В.П.
+Состав: тиаметоксам 4%, зетациперметрин 1%.
+Инсектицид водорастворимый для уничтожения тараканов, клопов, блох, муравьёв, мух, ос, моли, бабочек, клещей,комаров и их личинок на объектах различной категории. Препарат в виде водорастворимых гранул от белого до светло-желтого цвета.
+
+
+</p>
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ЗАКАЗАТЬ&nbsp;</a>                  
+				</div>
+              
+              
+              
+				<div class="col-md-4 text-left padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					
+                  <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/Adamant-Tab.png">
+                   </div></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83);">>>АДАМАНТ Таб</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-weight: 300; font-size: 13px;">АДАМАНТ Таб
+Состав: циперметрин 4,5%, малатион 0,9%.
+Инсектицид водорастворимый для уничтожения тараканов, клопов, блох, муравьёв, мух, комаров на объектах различной категории. Препарат в виде водорастворимых гранул от белого до светло-серого цвета.
+
+
+</p>
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ЗАКАЗАТЬ&nbsp;</a>                  
+				</div>             
+              
+              
+<!--              
+				<div class="col-md-4 text-left padd-top-md " style=" left: 0px; top: 0px; visibility: visible;">
+					
+                  <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/adamuh.JPG">
+                   </div></div>
+					<h2 class="hero-title cursor_pointer" style="font-family: Philosopher; font-weight: 700; color: rgb(74, 149, 83);">>>АДАМАНТ приманка</h2>
+					<p class="text-xs color-primary cursor_pointer" style="font-family: 'Open Sans'; color: rgb(0, 0, 0); font-weight: 300; font-size: 13px;">АДАМАНТ приманка Г.П.
+Состав: тиаметоксам 1%.
+Готовая к применению высокоэффективная приманка от мух и ос в виде гранулированного порошка от белого до светло-желтого цвета.
+
+
+
+</p>
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: rgb(74, 149, 83);">ЗАКАЗАТЬ&nbsp;</a>                  
+				</div>              
+              
+-->              
+              
+          
+			</div>
+		</div>
+	</div>
+</section>  
+  
+  
+<!--
+E N D K U P I T
+--> 
+  
+  
+  
+  
+<!--
+P R e P A R
+-->
+<section id="cnts_prepar" class="omg_component  content-1">
+    <div class="bg-white bg-color padd-top-2x padd-bottom-2x">
+        <div class="container">
+            <div class="row  v-align-flex">
+<div class="col-md-6" style=" left: 0px; top: 0px;">
+                   <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/fogging.jpg">
+                                             </div></div>
+               </div>              
+			
+			<div class="col-md-6" style=" left: 0px; top: 0px;">
+                    <div class="gutter">
+					
+                        <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);">Как подготовить квартиру для дезинфекции</h2>
+                        <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">
+			
+<p align="left">1. Детей и домашних животных необходимо убрать из помещения на время обработки и последующих проветривания и уборки. Если у Вас есть аквариум или террариум - обязательно скажите об этом нашему оператору при оформлении заказа, многие препараты безопасны только для теплокровных существ. 
+  Перед тем как сделать уничтожение клопов, тараканов в квартире, провести уборку помещения, дать доступ персоналу к плинтусам, пустотам под ванной, под шкафами и тумбочками, воздуховодам и вентиляционным отверстиям. 
+  Вот список того, что необходимо упаковать в герметичные полиэтиленовые мешки или вынести на открытый балкон:
+детские игрушки
+продукты такие как крупы, хлеб, соль, сахар, специи, овощи, фрукты (кроме тех продуктов, что хранятся в холодильнике)
+средства личной гигиены (полотенца, расчески, зубные щетки, туалетную бумагу и т.д.)<br>
+
+<p align="left">2.  После дезинсекции.
+Проветрить помещение не менее 30 минут. Приготовить раствор 1 чайная ложка соды на 1 литр воды и провести поверхностную уборку обработанных помещений.
+ Помыть всю посуду и места приёма и готовки пищи, поверхности которых вы часто касаетесь руками в повседневной жизни. Мертвых и парализованных насекомых
+                          смести и выбросить в унитаз.</p>
+ 
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ЗАКАЗАТЬ&nbsp;ДЕЗИНФЕКЦИЮ</a>
+			      </div>
+        </div>
+         </div>
+        </div>
+          
+    </div>    
+</section>
+<!--
+E N D P R e P A R
+-->  
+  
+
+<!--
+SREDSTV
+-->
+<section id="cnts_sredstv" class="omg_component  content-1">
+    <div class="bg-white bg-color padd-top-2x padd-bottom-2x">
+        <div class="container">
+            <div class="row  v-align-flex">
+<div class="col-md-6" style=" left: 0px; top: 0px;">
+                   <div class="slideshow"><div class="slide">
+                            <img alt="image" src="img/images_54/insecticides.jpg">
+                                             </div></div>
+               </div>			
+			<div class="col-md-6" style=" left: 0px; top: 0px;">
+                    <div class="gutter">
+					
+                        <h2 class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);">Средства для дезинфекции</h2>
+                        <p  align="left" class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">
+			
+Технология уничтожения тараканов, клопов и паразитов
+<br>Временами у насекомых наблюдается привыкание к ядам (резистентность). Это может быть результатом использования слишком малой дозы инсектицида или воздействия других факторов. В таком случае нормальные смертельные дозы препарата уже не действуют и их нужно значительно увеличивать. Особенно быстро развивается устойчивость к органическим веществам (3-12 поколений). Но в процессе эволюции могут появляться популяции с повышенной устойчивостью к отдельным препаратам, она может закрепиться и стать устойчивым наследственным признаком.  Резистентность к ядам — явление временное и при смене инсектицида быстро пропадает.<br>
+
+Пестициды классифицируются по группам, в частности:
+<br>химическому составу:
+Неорганические соединения: мышьяка, ртути, меди, серы, фтора, бария и т. д.(большинство в настоящее время запрещены к применению)
+<br>Органические
+Пестициды органические подразделяются на:
+<br>	Хлорорганические (многие в настоящее время запрещены к применению)
+<br>	Фосфорорганические
+<br>	Металлоорганические (многие в настоящее время запрещены к применению)
+<br>	Алкалоиды (никотиновые производные и неоникотиноиды)
+<br>	Биологические (препараты растительного, бактериального и грибного происхождения, пиретрины, антибиотики).
+<br>По назначению:
+<br>	Акарициды — для борьбы с клещами;
+<br>	Бактерициды — группа пестицидов, используемая для уничтожения бактерий-возбудителей болезней растений;
+<br>	Биопестициды — пестициды биологического происхождения;
+<br>	Гербициды — пестициды, используемые для борьбы с сорными растениями;
+<br>	Десиканты — пестициды, вызывающие высыхание растений перед уборочными работами;
+<br>	Дефолианты — вещества, способствующие сбросу листвы растениями;
+<br>	Инсектициды — самая крупная группа пестицидов, используемая для уничтожения насекомых-вредителей;
+<br>	Зооциды — вещества, предназначенные для борьбы с животными наносящих вред хозяйственной деятельности человека;
+                        <br>	Родентициды — вещества, предназначенные для уничтожения грызунов;
+<br>	Моллюскоциды — пестициды, предназначенные для борьбы с моллюсками;
+<br>	Нематоциды — группа пестицидов, используемая для уничтожения круглых червей (нематод);
+<br>	Регуляторы роста растений — группа пестицидов, используемая для влияния на развитие и рост растений;
+<br>	Протравители семян — пестициды, применяемые для предпосевных обработок;
+<br>	Фумиганты — пестициды, применяемые в газообразном состоянии для борьбы с вредителями и возбудителей болезней;
+<br>	Фунгициды — препараты направленные на борьбу с грибковыми заболеваниями растений;
+<br>	Хемостерилизаторы — пестициды, действие которых вызывает стерилизацию насекомых.
+ 
+ 
+<br>По способу проникновения, а также по характеру и механизму воздействия на организмы:
+<br>-Контактные (при соприкосновении любой частью тела)
+<br>-Кишечные (при попадании в организм вместе с пищей вызывают гибель,)
+<br>-Системные (проникают в сосудистую систему растений, распространяются по ней и вызывают гибель вредителей и возбудителей болезней)
+<br>-Фумигативные (проникают в организм вредителей через органы дыхания)
+ 
+<br>По токсичности
+<br>Токсичность и степень опасности для человека и теплокровных животных определяется по гигиенической классификации пестицидов в целом. Она разработана на токсичном воздействии препаратов, вводимых в желудок экспериментальным животным (крысам), и определяется в миллиграммах (мг) / 1 кг живой массы. По данному принципу пестициды разделяют на 4 группы:
+<br>	-I сильнодействующие – ЛД50 – до 50 мг/кг;
+<br>	-II высокотоксичные – ЛД50 – от 50 до 200 мг/кг;
+<br>	-III средне токсичные – ЛД50 – от 200 до 1000 мг/кг;
+<br>	-IV малотоксичные – ЛД50 – более 1000 мг/кг.
+ 
+<br>По кожно-резорбтивной токсичности пестициды делят на 3 группы по результатам исследований на крысах или кроликах:
+<br>	-I  Резко выраженная токсичность — ЛД50 меньше 300 мг/кг;
+<br>	-II  Выраженная токсичность — ЛД50 300—1000 мг/кг;
+<br>	-III  Слабо выраженная токсичность — ЛД50 более 1000 мг/кг.
+<p>
+ 
+ <p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;">&nbsp;</p>
+                        <a href="#sendtel" class="btn btn-black cursor_pointer" style="font-family: Oswald; font-size: 17px; background-color: #2cbf55;">ЗАКАЗАТЬ&nbsp;ДЕЗИНФЕКЦИЮ</a>
+			      </div>
+        </div>
+         </div>
+        </div>
+          
+    </div>    
+</section>
+<!--
+E N D S
+-->   
+ 
+  
+  
+
+  
+  
+  
+   
+<section id="rvw_1" class="omg_component content-49">
+	<div class="bg-color bg-grey" style="background-color: #2cbf55;">
+		<div class="container">
+			<div class="slideshow dark-control hide-arrows padd-top-2x padd-bottom-2x" style=" left: 0px; top: 0px;"><div class="slide">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center v-align-flex tweet">
+							
+					      		<i style="font-size: 67px;" class="icon ion-heart cursor_pointer"></i>
+					      		<p itemprop="review" itemscope itemtype="http://schema.org/Review" class="text-sm  text-justify cursor_pointer">
+                                  <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name">
+							      		<a href="#" class="cursor_pointer">@</a>student&nbsp;<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name">"Дезинфекторы быстро приехали, за пол-часа сделали уничтожение клопов в квартире, выдали бумаги. После двухчасового проветривания никакого запаха не осталось. Ура! Спим спокойно</span></p>
+				      		
+					      	
+						</div>
+					</div>
+				</div><div class="slide">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center v-align-flex tweet" style=" left: 0px; top: 0px;">
+							
+					      		<i style="font-size: 68px;" class="icon ion-heart cursor_pointer"></i>
+					      		<p class="text-sm  text-justify cursor_pointer">
+							      		<a href="#" class="cursor_pointer">@</a>anonim&nbsp;"Все, чего я боялся - запаха, залитой мебели - оказалось напрасным))"</p>
+				      		
+					      	
+						</div>
+					</div>
+				</div></div>
+		</div>
+	</div>
+</section>
+      
+<section id="message">
+<p class="title uppercase letter-spacing-3 cursor_pointer" style="font-family: Philosopher; font-size: 35px; color: rgb(74, 149, 83);" align="center"> <br> ЗВОНИТЕ<br><br> <span itemprop="telephone" style="color: rgb(255, 255, 255); background-color: rgb(255, 117, 98);">8&nbsp;499&nbsp;394&nbsp;78&nbsp;21</span><br><br><span style=" color: rgb(74, 149, 83);"> +7 925 710 91 86</span> </p>  
+
+
+ <!-- <input name="phone" placeholder="Тел"  >
+<input type="button" value="Запросить обратый звонок" >
+  -->
+<div style="background-color: #2cbf55;" >
+		<div class="container padd-top-lg padd-bottom-lg text-center">
+			<h4 class="light-font uppercase cursor_pointer" style="font-family: Philosopher; font-size: 24px; opacity: 1;">Оставьте свой ТЕЛЕФОН или Е-МЕЙЛ и отзыв или вопрос</h4>	
+<form action="" id="form1">            
+          <textarea type="text" style="font-family: Philosopher; font-size: 18px; opacity: 1; width: 300px; height: 100px;" name="mess" cols="30" rows="4" placeholder="Введите E-mail и сообщение:" required ></textarea>
+  <br>
+  <br>
+		    <input type="button_mess" class="btn btn-white btn-pill cursor_pointer" style="font-family: Philosopher; font-size: 18px; opacity: 1; " value="Отправить">
+</form>  
+<h4 class="light-font uppercase cursor_pointer" id="result_mess" style="font-family: Philosopher; font-size: 31px; opacity: 1;">Сообщение еще не отправлено&nbsp;</h4>          
+		</div>
+</div>    
+  
+
+<script type="text/javascript" src="js/jquery.min.js"></script>  
+<script>
+  $('[type="button_mess"]').click(function() {
+    $.post(
+           "/sendme.php",  
+           {
+           phone: $('[name="mess"]').val()
+           },
+           function(data) {
+           $("#result_mess").html(data);
+//alert("Спасибо за отзыв! Мы Вас ценим.");
+			$("#form1").trigger("reset");             
+           }
+    );              
+  });
+</script> 
+  
+</section>      
+
+
+
+
+
+      
+      
+<footer id="ftr_1" class="omg_component footer-3">
+	<div class="bg-color bg-black" style="background-color: rgb(50, 52, 52);">
+		<div class="container padd-top-lg padd-bottom-lg text-center">
+			<h4 class="light-font uppercase cursor_pointer" style="font-family: Philosopher; font-size: 31px; opacity: 1;">уничтожить клопов, тараканов, клещей безопасно&nbsp;</h4>
+			<p class="padd-bottom-xs color-primary cursor_pointer" style="font-family: Philosopher; font-size: 23px;">
+				Позвони&nbsp;<a href="tel://+919999999999" class="cursor_pointer"></a>8&nbsp;499&nbsp;394&nbsp;78&nbsp;21&nbsp; +7&nbsp;925&nbsp;710&nbsp;91&nbsp;86<span class="cursor_pointer"></span>
+				Напиши <a href="mailto:klop-off@yandex.ru" class="cursor_pointer"><span itemprop="email">klop-off@yandex.ru</span></a></p>
+			<h4 class="light-font uppercase cursor_pointer" style="font-family: Philosopher; font-size: 31px; opacity: 1;">РосДезсервис&nbsp;</h4>
+<p class="color-primary  padd-bottom-xs line-height-4 cursor_pointer" style="font-family: Oswald;"> 
+При обращении Вы выражаете свое согласие на обработку (включая получение от меня и/или от любых третьих лиц) моих персональных данных в порядке и на условиях, определенных Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных»          
+</p>     
+		</div>
+	</div>
+</footer></span>
+    <!-- footer includes & scripts -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- all plugins -->
+    <script type="text/javascript" src="js/modernizer.js"></script>
+    <script type="text/javascript" src="js/isMobile.js"></script>
+    <script type="text/javascript" src="js/slick.js"></script>
+    <script type="text/javascript" src="js/stellar.js"></script>
+
+    <script type="text/javascript" src="js/imagesLoaded.js"></script>
+    <script type="text/javascript" src="js/lightgallery.js"></script>
+    <script type="text/javascript" src="js/masonry.js"></script>
+
+    <script type="text/javascript" src="js/spectagram.js"></script>
+    <script type="text/javascript" src="js/wow.js"></script>
+    <script type="text/javascript" src="js/YTPlayer.js"></script>   
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <!-- or include all at once using
+    <script type="text/javascript" src="js/plugins.min.js"></script>
+   -->
+    <!-- Google Maps -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
+    </script>
+    <!-- main.js -->
+    <script type="text/javascript" src="js/main.js"></script>
+  
+</body>
+
+</html>
